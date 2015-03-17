@@ -12,4 +12,24 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require_tree .
+//= require pikaday
+
+var JobHunt = {
+  init: function() {
+    this.date_picker();
+  },
+
+  // initialize all the date pickers on the page using Pikaday
+  date_picker: function() {
+    var $inputs = $('[type=datetime]');
+
+    for (var i = 0; i < $inputs.length; i++) {
+      var picker = new Pikaday({ field: $inputs[i] });
+    }
+  }
+};
+
+
+$(function() {
+  JobHunt.init();
+});
