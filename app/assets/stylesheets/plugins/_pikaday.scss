@@ -1,0 +1,14 @@
+.pika-button {
+  .is-today & {
+    color: $c-green;
+  }
+
+  .is-selected & {
+    background: $c-green;
+    box-shadow: none;
+  }
+
+  &:hover {
+    background: $c-dark_green !important;
+  }
+}

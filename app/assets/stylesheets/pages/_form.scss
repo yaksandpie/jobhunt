@@ -1,0 +1,13 @@
+.form_page {
+  background: url(/images/tea_busy.jpg) no-repeat center center fixed;
+  background-size: cover;
+}
+
+.form_area {
+  max-width: 500px;
+  padding: 30px;
+  border: 2px solid $c-dark_gray;
+  border-radius: 2px;
+  margin: auto;
+  background: $c-gray;
+}

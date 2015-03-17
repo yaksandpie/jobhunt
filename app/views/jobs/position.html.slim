@@ -1,36 +1,36 @@
-.form_tile
+.form_area
   h1 Create Position
   = form_for @position, url: {action: 'create_position'} do |f|
-    .form_tile-input-area
+    .form-input-area
       = f.label :title, 'Position Title'
       br
       = f.text_field :title, {placeholder: 'title'}
     
-    .form_tile-input-area
-      = f.label :url
+    .form-input-area
+      = f.label :url, 'URL'
       br
       = f.text_field :url, {placeholder: 'http://www.alexmiley.com'}
     
-    .form_tile-input-area
+    .form-input-area
       = f.label :date_applied, 'Date Applied'
       br
       = f.datetime_field :date_applied, {value: Date.today}
 
-    .form_tile-input-area--checkbox
+    .form-input-area--checkbox
       = f.label :hear_back do
         = f.check_box :hear_back
         = 'Did you hear back?'
     
-    .form_tile-input-area
+    .form-input-area
       = f.label :company_id, 'Company'
       br
       = f.collection_select :company_id, @companies, :id, :name
     
-    .form_tile-input-area
+    .form-input-area
       = f.label :notes
       br
       = f.text_area :notes, {placeholder: 'jot some down...'}
     
-    .form_tile-input-area
+    .form-input-area
       = f.submit 'Create!'
 

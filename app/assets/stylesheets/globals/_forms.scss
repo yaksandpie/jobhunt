@@ -11,7 +11,7 @@ input[type=text], input[type=password], input[type=email], input[type=tel], inpu
   border: 1px solid $c-input_borders;
   margin: 0;
   box-shadow: none;
-  font-size: 1.2em;
+  font-size: .9em;
   color: $c-dark_gray;
   transition: all 0.30s ease-in-out;
    
@@ -52,22 +52,40 @@ input[type=submit] {
   }
 }
 
+@mixin placeholder() {
+  font-size: .9em;
+  letter-spacing: .05em;
+}
+
 ::-webkit-input-placeholder {
-   font-size: .7em;
-   letter-spacing: .05em;
+  @include placeholder();
 }
 
 :-moz-placeholder {
-   font-size: .7em;
-   letter-spacing: .05em;  
+  @include placeholder();
 }
 
 ::-moz-placeholder {
-   font-size: .7em;
-   letter-spacing: .05em;  
+  @include placeholder();
 }
 
 :-ms-input-placeholder {  
-   font-size: .7em;
-   letter-spacing: .05em;  
+  @include placeholder();
+}
+
+// Form layout stuff
+.form-input-area {
+  margin-bottom: 30px;
+}
+
+.form-input-area--checkbox {
+  margin-bottom: 30px;
+
+  label {
+    margin-bottom: 0;    
+  }
+
+  input {
+    margin-right: 10px;
+  }
 }
