@@ -1,4 +1,6 @@
 class PagesController < ApplicationController
+  before_action :authenticate_user!, except: [:error404]
+
   def home
     @page_title = "Home"
     @body_class = "home_page"

@@ -1,4 +1,6 @@
 class JobsController < ApplicationController
+  before_action :authenticate_user!
+
   def company
     @page_title = 'Company'
     @body_class = 'form_page'
