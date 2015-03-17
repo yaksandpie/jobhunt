@@ -16,7 +16,7 @@ html
 
     = render 'favicons', app_name: 'obsessivearchives: job hunt'
 
-  body
+  body class=(@body_class if @body_class.present?)
     = render 'header'
 
     section.main_content
@@ -24,8 +24,6 @@ html
       .alert = alert
       
       = yield
-
-    = render 'footer'
 
     = javascript_include_tag 'application'
 

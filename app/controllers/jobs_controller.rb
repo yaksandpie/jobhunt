@@ -1,6 +1,7 @@
 class JobsController < ApplicationController
   def company
-    @page_title = "Company"
+    @page_title = 'Company'
+    @body_class = 'form_page'
 
     @company = Company.new
   end
@@ -18,7 +19,8 @@ class JobsController < ApplicationController
   end
 
   def position
-    @page_title = "Position"
+    @page_title = 'Position'
+    @body_class = 'form_page'
 
     @position = Position.new
     @companies = Company.all
@@ -38,6 +40,7 @@ class JobsController < ApplicationController
 
   def interview
     @page_title = "Interview"
+    @body_class = 'form_page'
 
     @interview = Interview.new
     @positions = Position.all
