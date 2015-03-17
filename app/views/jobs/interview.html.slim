@@ -1,14 +1,30 @@
-p Create Interview
-= form_for @interview, url: {action: 'create_interview'} do |f|
-  = f.datetime_field :interview_date, {placeholder: 'interview_date', value: Date.today}
-  br
-  = f.text_field :approx_length, {placeholder: 'approx length'}
-  br
-  = f.check_box :thank_you_sent
-  = 'did you send a thank you?'
-  br
-  = f.collection_select :position_id, @positions, :id, :title
-  br
-  = f.text_area :notes, {placeholder: 'jotting some notes...'}
-  br
-  = f.submit 'Create!'
+.form_tile
+  h1 Create Interview
+  = form_for @interview, url: {action: 'create_interview'} do |f|
+    .form_tile-input-area
+      = f.label :interview_date
+      br
+      = f.datetime_field :interview_date, {value: Date.today}
+
+    .form_tile-input-area
+      = f.label :approx_length, 'Esimated interview length'
+      br
+      = f.text_field :approx_length, {placeholder: '2 hours'}
+
+    .form_tile-input-area--checkbox
+      = f.label :thank_you_sent do
+        = f.check_box :thank_you_sent
+        = 'Did you send a thank you?'
+    
+    .form_tile-input-area
+      = f.label :position_id, 'Which position?'
+      br
+      = f.collection_select :position_id, @positions, :id, :title
+    
+    .form_tile-input-area
+      = f.label :notes
+      br
+      = f.text_area :notes, {placeholder: 'jot some down...'}
+    
+    .form_tile-input-area
+      = f.submit 'Submit'

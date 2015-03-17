@@ -1,0 +1,73 @@
+label {
+  display: inline-block;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+input[type=text], input[type=password], input[type=email], input[type=tel], input[type=datetime], textarea, select {
+  width: 100%;
+  max-width: 520px;
+  padding: 10px;
+  border: 1px solid $c-input_borders;
+  margin: 0;
+  box-shadow: none;
+  font-size: 1.2em;
+  color: $c-dark_gray;
+  transition: all 0.30s ease-in-out;
+   
+  &:focus {
+    box-shadow: 0 0 5px rgba($c-green, 1);
+    border: 1px solid rgba($c-green, 1);
+  }
+}
+
+select {
+  color: transparent;
+  text-shadow: 0 0 0 $c-dark_gray;
+  -webkit-appearance: none;
+  cursor: pointer;
+}
+
+input[type=checkbox] {
+  cursor: pointer;
+}
+
+textarea {
+  height: 150px;
+}
+
+input[type=submit] {
+  display: inline-block;
+  padding: 10px 20px;
+  border: none;
+  background: $c-dark_green;
+  color: $c-white;
+  text-transform: uppercase;
+  font-size: .8em;
+  letter-spacing: .05em;
+  cursor: pointer;
+
+  &:hover {
+    background: rgba($c-dark_green, .9);
+  }
+}
+
+::-webkit-input-placeholder {
+   font-size: .7em;
+   letter-spacing: .05em;
+}
+
+:-moz-placeholder {
+   font-size: .7em;
+   letter-spacing: .05em;  
+}
+
+::-moz-placeholder {
+   font-size: .7em;
+   letter-spacing: .05em;  
+}
+
+:-ms-input-placeholder {  
+   font-size: .7em;
+   letter-spacing: .05em;  
+}

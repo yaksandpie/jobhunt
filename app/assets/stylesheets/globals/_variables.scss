@@ -1,11 +1,13 @@
-// widths, padding, margins, and the like
-$w-left_column: 280px;
-
 // Typography
-$f-lato: "Lato", serif;
+$f-sans: "open_sans", "Arial", "Helvetica", sans-serif;
 
 // Colors
 $c-white: #fff;
+$c-green: #4cc587;
+$c-dark_green: #32494E;
+$c-gray: #e7f0ee;
+$c-dark_gray: #46465f;
 
 // Functional name for colors 
-$c-body_bg: $c-white;
+$c-form_tile-border: $c-green;
+$c-input_borders: #cecece;

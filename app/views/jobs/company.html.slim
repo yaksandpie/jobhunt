@@ -1,12 +1,26 @@
-p Create Company
-= form_for @company, url: {action: 'create_company'} do |f|
-  = f.text_field :name, {placeholder: 'name'}
-  br
-  = f.text_field :location, {placeholder: 'location'}
-  br
-  = f.text_field :url, {placeholder: 'url'}
-  br
-  = f.text_area :notes, {placeholder: 'jotting some notes...'}
-  br
-  = f.submit 'Create!'
+.form_tile
+  h1 Create Company
+  = form_for @company, url: {action: 'create_company'} do |f|
+    .form_tile-input-area
+      = f.label :name, 'Company Name'
+      br
+      = f.text_field :name, {placeholder: 'xyz company'}
+    
+    .form_tile-input-area
+      = f.label :location
+      br
+      = f.text_field :location, {placeholder: 'SE Division St / 21st`'}
+
+    .form_tile-input-area
+      = f.label :url
+      br
+      = f.text_field :url, {placeholder: 'http://www.alexmiley.com'}
+    
+    .form_tile-input-area
+      =f.label :notes
+      br
+      = f.text_area :notes, {placeholder: 'jot some down...'}
+    
+    .form_tile-input-area
+      = f.submit 'Submit'
 

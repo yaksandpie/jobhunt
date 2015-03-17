@@ -19,10 +19,11 @@ html
   body
     = render 'header'
 
-    p.notice = notice
-    p.alert = alert
-
-    = yield
+    section.main_content
+      .notice = notice
+      .alert = alert
+      
+      = yield
 
     = render 'footer'
 
