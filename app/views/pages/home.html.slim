@@ -1,6 +1,6 @@
 / Positions Area
 .home-wrapper
-  h1 = 'Positions Applied For'
+  h1 = 'Positions in progress'
   
   - if @positions.count > 0
     table
@@ -23,7 +23,7 @@
             td = position.company.name
             td.table-url
               span.table-url-link_wrapper
-                a href=position.url = position.url
+                a href=position.url = strip_url(position.url)
             td.table-count = position.interviews.count
             td = position.notes
   - else
@@ -78,7 +78,7 @@
             td = company.name
             td.table-url
               span.table-url-link_wrapper
-                a href=company.url = company.url
+                a href=company.url = strip_url(company.url)
             td = company.location
             td = company.notes
 

@@ -1,3 +1,24 @@
+.alert, .notice {
+  position: absolute;
+  top: 20px;
+  left: 30px;
+  padding: 5px 10px;
+  border: 1px solid $c-dark_green;
+  background: $c-gray;
+  font-size: .9em;
+  text-transform: uppercase;
+  font-weight: bold;
+
+  animation-duration: 3s;
+  animation-name: fadeOut;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+.alert {
+  background: $c-orange;
+}
+
 .main_content {
   padding: 0 30px;
 }
@@ -14,4 +35,22 @@
   font-size: 3em;
   text-transform: uppercase;
   font-weight: bold;
+}
+
+// Animations
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+    left: 30px;
+  }
+
+  99.9% {
+    left: 30px;
+    opacity: 0;
+  }
+
+  100% {
+    left: -9999em;
+    opacity: 0;
+  }
 }

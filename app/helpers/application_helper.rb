@@ -10,4 +10,11 @@ module ApplicationHelper
     @page_description || 'obsessivearchives: job hunt - organizing your path to a better job'
   end
 
+  def strip_url(url)
+    url.sub!(/https\:\/\//, '') if url.include? "https://"
+    url.sub!(/http\:\/\//, '') if url.include? "http://"
+    url.sub!(/www./, '') if url.include? "www."
+    return url
+  end
+
 end

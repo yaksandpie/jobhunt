@@ -38,16 +38,24 @@ td.table-date {
 }
 
 .table-url {
-  width: 150px;
+  width: 75px;
   overflow: hidden;
+
+  @include bp(papa-bear) {
+    width: 150px;
+  }
 }
 
 .table-url-link_wrapper {
   display: inline-block;
-  width: 125px;
-  font-size: .9em;
+  width: 75px;
   text-overflow: ellipsis;
   overflow: hidden;
+  font-size: .9em;
+
+  @include bp(papa-bear) {
+    width: 125px;
+  }
 }
 
 .table-true {
@@ -73,5 +81,9 @@ td.table-date {
 }
 
 .table-desc {
-  min-width: 150px;
+  min-width: 100px;
+
+  @include bp(papa-bear) {
+    min-width: 150px;
+  }
 }
