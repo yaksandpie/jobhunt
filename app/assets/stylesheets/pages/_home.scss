@@ -1,5 +1,5 @@
 .home_page {
-  background: url(/images/sunshine_guy.jpg) no-repeat center center fixed;
+  background: url(/images/forest_guy.jpg) no-repeat center center fixed;
   background-size: cover;
 }
 
@@ -11,4 +11,52 @@
   margin: 0 auto 60px auto;
   background: $c-gray;
   overflow-x: auto;
+  text-align: center;
+
+  h1 {
+    font-size: 2em;
+  }
+
+  p {
+    margin-bottom: 40px;
+    font-style: italic;
+    line-height: 1.5;
+  }
+}
+
+.home-actions {
+  padding: 40px;
+  margin: 0 -30px -30px -30px;
+  background: $c-green;
+}
+
+.home-actions-signin {
+  display: inline-block;
+  width: 40%;
+  padding: 30px 20px;
+  margin-right: 30px;
+  font-size: 1.8em;
+  background: $c-white;
+  color: $c-dark_gray;
+  text-align: center;
+  cursor: pointer;
+
+  &:hover {
+    background: rgba($c-white, .8);
+  }
+}
+
+.home-actions-dashboard {
+  display: inline-block;
+  width: 40%;
+  padding: 30px 20px;
+  font-size: 1.8em;
+  background: $c-dark_green;
+  color: $c-white;
+  text-align: center;
+  cursor: pointer;
+
+  &:hover {
+    background: rgba($c-dark_green, .8);
+  }
 }

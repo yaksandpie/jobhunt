@@ -4,6 +4,7 @@ Rails.application.routes.draw do
     sessions: 'users/sessions'
   }
 
+  get  'jobs', to: 'jobs#index', as: 'jobs'
 
   get  'jobs/company', to: 'jobs#company', as: 'jobs_company'
   post 'jobs/create_company'
@@ -70,4 +71,6 @@ Rails.application.routes.draw do
   #   end
 
   root to: 'pages#home'
+
+  match '*path', to: 'pages#error404', via: [:get, :post]
 end

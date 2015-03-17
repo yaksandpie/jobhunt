@@ -1,7 +1,8 @@
 .alert, .notice {
   position: absolute;
-  top: 20px;
-  left: 30px;
+  top: 15px;
+  left: 50%;
+  transform: translateX(-50%);
   padding: 5px 10px;
   border: 1px solid $c-dark_green;
   background: $c-gray;
@@ -41,11 +42,11 @@
 @keyframes fadeOut {
   0% {
     opacity: 1;
-    left: 30px;
+    left: 50%;
   }
 
   99.9% {
-    left: 30px;
+    left: 50%;
     opacity: 0;
   }
 
