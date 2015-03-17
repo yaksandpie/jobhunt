@@ -1,0 +1,11 @@
+//  apply a natural box layout model to all elements  for more info: http://www.paulirish.com/2012/box-sizing-border-box-ftw/
+* {
+	box-sizing: border-box; 
+}
+
+body {
+}
+
+a {
+  text-decoration: none;
+}

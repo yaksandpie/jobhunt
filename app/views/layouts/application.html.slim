@@ -1,0 +1,31 @@
+doctype html
+/[if lte IE 8]
+  | <html class="ie8 lt-ie9 lte-ie9">
+/[if IE 9]
+  | <html class="ie9 lte-ie9 lt-ie10">
+html
+  head
+    title = page_title
+    meta name='description' content=page_description
+
+    meta name="viewport" content="width=device-width, initial-scale=1"
+
+    = csrf_meta_tags
+
+    = stylesheet_link_tag 'application', media: 'all'
+
+    = render 'favicons', app_name: 'obsessivearchives: job hunt'
+
+  body
+    = render 'header'
+
+    p.notice = notice
+    p.alert = alert
+
+    = yield
+
+    = render 'footer'
+
+    = javascript_include_tag 'application'
+
+    = yield :javascript
