@@ -9,7 +9,7 @@
   border: 2px solid $c-dark_gray;
   border-radius: 2px;
   margin: 0 auto 60px auto;
-  background: $c-gray;
+  background: rgba($c-gray, .8);
   overflow-x: auto;
   text-align: center;
 
@@ -43,6 +43,7 @@
 
   &:hover {
     background: rgba($c-white, .8);
+    border-color: transparent;
   }
 }
 
@@ -58,5 +59,6 @@
 
   &:hover {
     background: rgba($c-dark_green, .8);
+    border-color: transparent;
   }
 }
