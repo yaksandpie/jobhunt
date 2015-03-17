@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  interview_date: 2015-03-16 20:57:05
+  approx_length: MyString
+  notes: MyText
+  thank_you_sent: false
+
+two:
+  interview_date: 2015-03-16 20:57:05
+  approx_length: MyString
+  notes: MyText
+  thank_you_sent: false
