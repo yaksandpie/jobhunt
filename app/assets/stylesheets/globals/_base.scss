@@ -5,7 +5,8 @@
 
 body {
   padding-top: 60px;
-  background-color: $c-gray;
+  background: url(/images/forest_guy.jpg) no-repeat center center fixed $c-gray;
+  background-size: cover;
   color: $c-dark_gray;
   font-family: $f-sans;
   line-height: 1.2;
