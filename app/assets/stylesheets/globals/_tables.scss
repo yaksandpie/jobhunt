@@ -1,0 +1,73 @@
+table {
+  width: 100%;
+  margin-bottom: 10px;
+  font-size: .9em;
+}
+
+th {
+  vertical-align: top;
+  padding: 10px;
+  text-align: left;
+  font-size: .8em;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+td {
+  vertical-align: top;
+  padding: 10px;
+}
+
+tr:nth-child(even) td {
+  background: darken($c-gray, 4%);
+}
+
+tr:nth-child(odd) td {
+  background: lighten($c-gray, 3%);
+}
+
+// Cell specifics
+.table-date {
+  width: 110px;
+  font-size: .8em;
+  font-weight: bold;
+}
+
+.table-url {
+  width: 150px;
+  overflow: hidden;
+}
+
+.table-url-link_wrapper {
+  display: inline-block;
+  width: 125px;
+  font-size: .9em;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.table-true {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  margin: auto;
+  background: rgba($c-green, .7);
+}
+
+.table-false {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background: rgba($c-orange, .7);
+}
+
+.table-boolean, .table-count {
+  width: 80px;
+  text-align: center;
+  font-weight: bold;
+  font-size: .8em;
+}
+
+.table-desc {
+  min-width: 150px;
+}

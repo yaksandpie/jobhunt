@@ -1,0 +1,13 @@
+.home_page {
+  background: url(/images/tea_busy.jpg) no-repeat center center fixed;
+  background-size: cover;
+}
+
+.home-wrapper {
+  max-width: 900px;
+  padding: 30px;
+  border: 2px solid $c-dark_gray;
+  border-radius: 2px;
+  margin: auto;
+  background: $c-gray;
+}

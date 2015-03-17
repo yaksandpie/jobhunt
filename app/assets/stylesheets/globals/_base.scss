@@ -8,6 +8,7 @@ body {
   background-color: $c-gray;
   color: $c-dark_gray;
   font-family: $f-sans;
+  line-height: 1.2;
 }
 
 h1 {
@@ -19,5 +20,14 @@ h1 {
 }
 
 a {
+  display: inline-block;
+  border-bottom: 1px solid transparent;
+  color: $c-blue;
   text-decoration: none;
+  outline: 0;
+  transition: border-color .2s ease-in-out;
+
+  &:hover {
+    border-color: $c-blue;
+  }
 }
