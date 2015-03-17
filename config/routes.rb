@@ -1,4 +1,13 @@
 Rails.application.routes.draw do
+  get 'jobs/company'
+  post 'jobs/create_company'
+
+  get 'jobs/position'
+  post 'jobs/create_position'
+
+  get 'jobs/interview'
+  post 'jobs/create_interview'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

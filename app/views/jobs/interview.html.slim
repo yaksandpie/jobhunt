@@ -1,0 +1,14 @@
+p Create Interview
+= form_for @interview, url: {action: 'create_interview'} do |f|
+  = f.datetime_field :interview_date, {placeholder: 'interview_date', value: Date.today}
+  br
+  = f.text_field :approx_length, {placeholder: 'approx length'}
+  br
+  = f.check_box :thank_you_sent
+  = 'did you send a thank you?'
+  br
+  = f.collection_select :position_id, @positions, :id, :title
+  br
+  = f.text_area :notes, {placeholder: 'jotting some notes...'}
+  br
+  = f.submit 'Create!'

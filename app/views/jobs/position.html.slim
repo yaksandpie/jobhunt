@@ -1,0 +1,17 @@
+p Create Position
+= form_for @position, url: {action: 'create_position'} do |f|
+  = f.text_field :title, {placeholder: 'title'}
+  br
+  = f.text_field :url, {placeholder: 'url'}
+  br
+  = f.datetime_field :date_applied, {placeholder: 'date_applied', value: Date.today}
+  br
+  = f.check_box :hear_back
+  = 'hear back?'
+  br
+  = f.collection_select :company_id, @companies, :id, :name
+  br
+  = f.text_area :notes, {placeholder: 'jotting some notes...'}
+  br
+  = f.submit 'Create!'
+

@@ -1,0 +1,12 @@
+p Create Company
+= form_for @company, url: {action: 'create_company'} do |f|
+  = f.text_field :name, {placeholder: 'name'}
+  br
+  = f.text_field :location, {placeholder: 'location'}
+  br
+  = f.text_field :url, {placeholder: 'url'}
+  br
+  = f.text_area :notes, {placeholder: 'jotting some notes...'}
+  br
+  = f.submit 'Create!'
+
