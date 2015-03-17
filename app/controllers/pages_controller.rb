@@ -4,7 +4,8 @@ class PagesController < ApplicationController
     @body_class = "home_page"
 
     @positions = Position.all
-
+    @interviews = Interview.all
+    @companies = Company.all
   end
 
   def error404

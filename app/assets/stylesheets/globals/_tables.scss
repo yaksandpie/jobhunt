@@ -33,6 +33,10 @@ tr:nth-child(odd) td {
   font-weight: bold;
 }
 
+td.table-date {
+  line-height: 17px;
+}
+
 .table-url {
   width: 150px;
   overflow: hidden;
