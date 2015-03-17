@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+
+  devise_for :users, controllers: {
+    sessions: 'users/sessions'
+  }
+
+
   get  'jobs/company', to: 'jobs#company', as: 'jobs_company'
   post 'jobs/create_company'
 
