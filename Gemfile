@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 # Back-end gems
 gem 'rails', '4.2.0'
-gem 'mysql2'
+gem 'pg'
 gem 'devise'
 
 # Front-end gems

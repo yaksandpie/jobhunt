@@ -13,50 +13,53 @@
 
 ActiveRecord::Schema.define(version: 20150317213601) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "companies", force: :cascade do |t|
-    t.string   "name",       limit: 255
-    t.text     "notes",      limit: 65535
-    t.string   "location",   limit: 255
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
-    t.string   "url",        limit: 255
+    t.string   "name"
+    t.text     "notes"
+    t.string   "location"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string   "url"
   end
 
   create_table "interviews", force: :cascade do |t|
     t.datetime "interview_date"
-    t.string   "approx_length",  limit: 255
-    t.text     "notes",          limit: 65535
-    t.boolean  "thank_you_sent", limit: 1
-    t.datetime "created_at",                   null: false
-    t.datetime "updated_at",                   null: false
-    t.integer  "position_id",    limit: 4
+    t.string   "approx_length"
+    t.text     "notes"
+    t.boolean  "thank_you_sent"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.integer  "position_id"
   end
 
   create_table "positions", force: :cascade do |t|
-    t.integer  "company_id",   limit: 4
-    t.string   "title",        limit: 255
-    t.string   "url",          limit: 255
-    t.text     "notes",        limit: 65535
+    t.integer  "company_id"
+    t.string   "title"
+    t.string   "url"
+    t.text     "notes"
     t.datetime "date_applied"
-    t.boolean  "hear_back",    limit: 1
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
+    t.boolean  "hear_back"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
 
   add_index "positions", ["company_id"], name: "index_positions_on_company_id", using: :btree
 
   create_table "users", force: :cascade do |t|
-    t.string   "email",                  limit: 255, default: "", null: false
-    t.string   "name",                   limit: 255
-    t.string   "encrypted_password",     limit: 255, default: "", null: false
-    t.string   "reset_password_token",   limit: 255
+    t.string   "email",                  default: "", null: false
+    t.string   "name"
+    t.string   "encrypted_password",     default: "", null: false
+    t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          limit: 4,   default: 0,  null: false
+    t.integer  "sign_in_count",          default: 0,  null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
-    t.string   "current_sign_in_ip",     limit: 255
-    t.string   "last_sign_in_ip",        limit: 255
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
