@@ -5,6 +5,7 @@ Rails.application.routes.draw do
     registrations: 'users/registrations'
   }
 
+  get  'jobs', to: 'jobs#index', as: 'jobs'
 
   get  'jobs/company', to: 'jobs#company', as: 'jobs_company'
   post 'jobs/create_company'
@@ -71,4 +72,6 @@ Rails.application.routes.draw do
   #   end
 
   root to: 'pages#home'
+
+  match '*path', to: 'pages#error404', via: [:get, :post]
 end

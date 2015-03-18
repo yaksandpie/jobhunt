@@ -1,0 +1,89 @@
+/ Positions Area
+.job-wrapper
+  h1 = 'Positions in progress'
+  
+  - if @positions.count > 0
+    table
+      thead
+        tr
+          th.table-boolean Response
+          th.table-date Date Applied
+          th.table-desc Title
+          th.table-desc Company
+          th URL
+          th.table-boolean Interviews
+          th Notes
+      tbody
+        - @positions.each do |position|
+          tr
+            td.table-boolean
+              span class=(position.hear_back? ? 'table-true' : 'table-false')
+            td.table-date = position.date_applied.strftime('%a, %b %d')
+            td = position.title
+            td = position.company.name
+            td.table-url
+              span.table-url-link_wrapper
+                a href=position.url = strip_url(position.url)
+            td.table-count = position.interviews.count
+            td = position.notes
+  - else
+    .negatory = ':('
+    
+  a.site-link href=jobs_position_path = 'Add a position'
+
+/ Interview Area
+.job-wrapper
+  h1 = 'All those interviews...'
+  
+  - if @interviews.count > 0
+    table
+      thead
+        tr
+          th.table-date Date
+          th.table-desc Position
+          th Location
+          th.table-desc Approx Length
+          th.table-desc Thank you sent?
+          th Notes
+      tbody
+        - @interviews.each do |interview|
+          tr
+            td.table-date = interview.interview_date.strftime('%a, %b %d')
+            td = "#{interview.position.title} at #{interview.position.company.name}"
+            td = interview.position.company.location
+            td = interview.approx_length
+            td = interview.thank_you_sent
+            td = interview.notes
+
+  - else
+    .negatory = ':('
+
+  a.site-link href=jobs_interview_path = 'Add an interview'
+
+/ Company Area
+.job-wrapper
+  h1 = 'The lucky companies!'
+  
+  - if @companies.count > 0
+    table
+      thead
+        tr
+          th.table-desc Name
+          th URL
+          th Location
+          th Notes
+
+      tbody
+        - @companies.each do |company|
+          tr
+            td = company.name
+            td.table-url
+              span.table-url-link_wrapper
+                a href=company.url = strip_url(company.url)
+            td = company.location
+            td = company.notes
+
+  - else
+    .negatory = ':('
+
+  a.site-link href=jobs_company_path = 'Add a company'
