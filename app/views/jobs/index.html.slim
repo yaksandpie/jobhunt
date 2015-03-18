@@ -1,5 +1,5 @@
 / Positions Area
-.home-wrapper
+.job-wrapper
   h1 = 'Positions in progress'
   
   - if @positions.count > 0
@@ -32,15 +32,16 @@
   a.site-link href=jobs_position_path = 'Add a position'
 
 / Interview Area
-.home-wrapper
+.job-wrapper
   h1 = 'All those interviews...'
   
   - if @interviews.count > 0
     table
       thead
         tr
-          th.table-date Interview Date
+          th.table-date Date
           th.table-desc Position
+          th Location
           th.table-desc Approx Length
           th.table-desc Thank you sent?
           th Notes
@@ -49,9 +50,9 @@
           tr
             td.table-date = interview.interview_date.strftime('%a, %b %d')
             td = "#{interview.position.title} at #{interview.position.company.name}"
+            td = interview.position.company.location
             td = interview.approx_length
-            td.table-boolean
-              span class=(interview.thank_you_sent? ? 'table-true' : 'table-false')
+            td = interview.thank_you_sent
             td = interview.notes
 
   - else
@@ -60,7 +61,7 @@
   a.site-link href=jobs_interview_path = 'Add an interview'
 
 / Company Area
-.home-wrapper
+.job-wrapper
   h1 = 'The lucky companies!'
   
   - if @companies.count > 0

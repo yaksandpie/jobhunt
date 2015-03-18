@@ -24,6 +24,16 @@
   }
 }
 
+.job-wrapper {
+  max-width: 900px;
+  padding: 30px;
+  border: 2px solid $c-dark_gray;
+  border-radius: 2px;
+  margin: 0 auto 60px auto;
+  background: rgba($c-gray, .8);
+  overflow-x: auto;
+}
+
 .home-actions {
   padding: 40px;
   margin: 0 -30px -30px -30px;
