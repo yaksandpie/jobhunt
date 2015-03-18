@@ -3,7 +3,7 @@ class JobsController < ApplicationController
 
   def index
     @page_title = "Jobs Central"
-    @body_class = "home_page"
+    @body_class = "job_page"
 
     @positions = Position.all
     @interviews = Interview.all
@@ -12,7 +12,7 @@ class JobsController < ApplicationController
 
   def company
     @page_title = 'Company'
-    @body_class = 'form_page'
+    @body_class = 'job_page'
 
     @company = Company.new
   end
@@ -22,7 +22,7 @@ class JobsController < ApplicationController
   	@company = Company.new(company_params)
   	if @company.save!
   	  flash[:alert] = 'Save successful :D'
-  	  redirect_to root_url
+  	  redirect_to jobs_url
   	else
   	  flash[:alert] = 'Save unsuccessful :/'
   	  redirect_to 'company'
@@ -31,7 +31,7 @@ class JobsController < ApplicationController
 
   def position
     @page_title = 'Position'
-    @body_class = 'form_page'
+    @body_class = 'job_page'
 
     @position = Position.new
     @companies = Company.all
@@ -42,7 +42,7 @@ class JobsController < ApplicationController
   	@position = Position.new(position_params)
   	if @position.save!
   	  flash[:alert] = 'Save successful :D'
-  	  redirect_to root_url
+  	  redirect_to jobs_url
   	else
   	  flash[:alert] = 'Save unsuccessful :/'
   	  redirect_to 'position'
@@ -51,7 +51,7 @@ class JobsController < ApplicationController
 
   def interview
     @page_title = "Interview"
-    @body_class = 'form_page'
+    @body_class = 'job_page'
 
     @interview = Interview.new
     @positions = Position.all
@@ -62,7 +62,7 @@ class JobsController < ApplicationController
   	@interview = Interview.new(interview_params)
   	if @interview.save!
   	  flash[:alert] = 'Save successful :D'
-  	  redirect_to root_url
+  	  redirect_to jobs_url
   	else
   	  flash[:alert] = 'Save unsuccessful :/'
   	  redirect_to 'interview'
