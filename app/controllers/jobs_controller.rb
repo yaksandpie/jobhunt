@@ -5,9 +5,9 @@ class JobsController < ApplicationController
     @page_title = "Jobs Central"
     @body_class = "job_page"
 
-    @positions = Position.all
-    @interviews = Interview.all
-    @companies = Company.all
+    @companies = current_user.companies
+    @positions = Position.where(company_id: @companies.pluck(:id))
+    @interviews = Interview.where(position_id: @positions.pluck(:id))
   end
 
   def company
@@ -18,7 +18,8 @@ class JobsController < ApplicationController
   end
 
   def create_company
-  	company_params = params.require(:company).permit(:name,:notes,:location,:url)
+  	company_params = params.require(:company).permit(:name,:notes,:location,:url,:user_id)
+    company_params[:user_id] = current_user.id
   	@company = Company.new(company_params)
   	if @company.save!
   	  flash[:alert] = 'Save successful :D'
@@ -34,7 +35,7 @@ class JobsController < ApplicationController
     @body_class = 'job_page'
 
     @position = Position.new
-    @companies = Company.all
+    @companies = current_user.companies
   end
 
   def create_position
@@ -54,7 +55,8 @@ class JobsController < ApplicationController
     @body_class = 'job_page'
 
     @interview = Interview.new
-    @positions = Position.all
+    @companies = current_user.companies
+    @positions = Position.where(company_id: @companies.pluck(:id))
   end
 
   def create_interview
