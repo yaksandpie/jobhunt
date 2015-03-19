@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   devise_for :users, controllers: {
     sessions: 'users/sessions',
-    registrations: 'users/registrations'
+    registrations: 'registrations'
   }
 
   get  'jobs', to: 'jobs#index', as: 'jobs'

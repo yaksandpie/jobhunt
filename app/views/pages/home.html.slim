@@ -5,5 +5,8 @@
     p = "Give it a go and watch the offers come rolling in!"
 
   section.home-actions
-    a.home-actions-signin href=new_user_session_path = 'Sign In'
-    a.home-actions-dashboard href=new_user_registration_path = 'Sign Up'
+    - if user_signed_in?
+      a.home-actions-signin href=jobs_path = 'Job Board'
+    - else
+      a.home-actions-signin href=new_user_session_path = 'Sign In'
+      a.home-actions-dashboard href=new_user_registration_path = 'Sign Up'
