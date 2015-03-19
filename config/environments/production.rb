@@ -77,6 +77,11 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
-    # For devise
-    config.action_mailer.default_url_options = { host: 'jobhunt.obsessivearchives.com' }
+  # For devise
+  config.action_mailer.default_url_options = { host: 'jobhunt.obsessivearchives.com' }
+
+  # only for debugging
+  config.action_controller.consider_all_requests_local = true
+  config.action_view.debug_rjs                         = true
+  config.action_controller.perform_caching             = false
 end
