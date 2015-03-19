@@ -4,6 +4,7 @@ source 'https://rubygems.org'
 gem 'rails', '4.2.0'
 gem 'pg'
 gem 'devise'
+gem 'rails_12factor'
 
 # Front-end gems
 gem 'sass-rails', '~> 5.0'
