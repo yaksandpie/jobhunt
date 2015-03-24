@@ -5,9 +5,23 @@ class JobsController < ApplicationController
     @page_title = "Jobs Central"
     @body_class = "job_page"
 
+    # get all the companies
     @companies = current_user.companies
+
     @positions = Position.where(company_id: @companies.pluck(:id))
-    @interviews = Interview.where(position_id: @positions.pluck(:id))
+
+    # get the new positions. i.e. those without a date applied
+    @new_positions = @positions.where(date_applied: nil)
+
+    # get the positions we've applied for
+    @applied_for_positions = @positions.where.not(date_applied: nil)
+
+    #get the positions that we got denied. those companies don't know what they're missing.
+    @positions_rejected = @positions.where.not(hear_back: nil)
+
+    # get all the interviews
+    @interviews = Interview.where(position_id: @new_positions.pluck(:id))
+    
   end
 
   def company
