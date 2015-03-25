@@ -5,15 +5,19 @@ Rails.application.routes.draw do
     registrations: 'registrations'
   }
 
+  # jobs dashboard
   get  'jobs', to: 'jobs#index', as: 'jobs'
 
-  get  'company', to: 'companies#index', as: 'company'
+  # company
   get  'company/add', to: 'companies#add', as: 'company_add'
   post 'company/create', to: 'companies#create'
 
+  # positions
   get 'position/add', to: 'positions#add', as: 'position_add'
+  get '/positions/applied_for/:position_id', to: 'positions#applied_for', as: 'position_applied_for'
   post 'position/create', to: 'positions#create'
 
+  # interviews
   get 'interview/add', to: 'interviews#add', as: 'interview_add'
   post 'interview/create', to: 'interviews#create'
 

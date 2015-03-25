@@ -25,7 +25,7 @@
                 a href=position.url = strip_url(position.url)
             td = position.notes
             td
-              input type='checkbox'
+              = link_to 'Change Status', position_applied_for_path(position), class: 'site-link'
   - else
     .negatory = ':('
     p.intro-text = 'You should probably go out and find some new ones. For real. You can do it!'

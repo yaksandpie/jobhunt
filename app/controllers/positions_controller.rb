@@ -21,6 +21,11 @@ class PositionsController < ApplicationController
     end
   end
 
+  def applied_for
+    Position.update(params[:position_id], :date_applied => Date.today)
+    redirect_to jobs_path
+  end
+
   private
 
   def permitted_params
