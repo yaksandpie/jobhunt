@@ -1,12 +1,12 @@
 .form_area
   h1 Create Position
-  = form_for @position, url: {action: 'create_position'} do |f|
+  = form_for @position, url: {action: 'create'} do |f|
     .form-input-area
       = f.label :company_id, 'Company'
       br
       = f.collection_select :company_id, @companies, :id, :name
       br
-      a.site-link href=jobs_company_path = 'Add a company'
+      a.site-link href=company_add_path = 'Add a company'
 
     .form-input-area
       = f.label :title, 'Position Title'
@@ -21,7 +21,7 @@
     .form-input-area
       = f.label :date_applied, 'Date Applied'
       br
-      = f.datetime_field :date_applied, {value: Date.today}
+      = f.datetime_field :date_applied
 
     .form-input-area--checkbox
       = f.label :rejected do

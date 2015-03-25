@@ -7,15 +7,15 @@ Rails.application.routes.draw do
 
   get  'jobs', to: 'jobs#index', as: 'jobs'
 
-  get  'jobs/company', to: 'jobs#company', as: 'jobs_company'
-  post 'jobs/create_company'
+  get  'company', to: 'companies#index', as: 'company'
+  get  'company/add', to: 'companies#add', as: 'company_add'
+  post 'company/create', to: 'companies#create'
 
-  get 'jobs/position', to: 'jobs#position', as: 'jobs_position'
-  post 'jobs/create_position'
+  get 'position/add', to: 'positions#add', as: 'position_add'
+  post 'position/create', to: 'positions#create'
 
-
-  get 'jobs/interview', to: 'jobs#interview', as: 'jobs_interview'
-  post 'jobs/create_interview'
+  get 'interview/add', to: 'interviews#add', as: 'interview_add'
+  post 'interview/create', to: 'interviews#create'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

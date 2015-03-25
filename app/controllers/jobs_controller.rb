@@ -24,26 +24,6 @@ class JobsController < ApplicationController
     
   end
 
-  def company
-    @page_title = 'Company'
-    @body_class = 'job_page'
-
-    @company = Company.new
-  end
-
-  def create_company
-    company_params[:user_id] = current_user.id
-  	@company = Company.new(company_params)
-
-  	if @company.save!
-  	  flash[:alert] = 'Save successful :D'
-  	  redirect_to jobs_url
-  	else
-  	  flash[:alert] = 'Save unsuccessful :/'
-  	  redirect_to 'company'
-  	end
-  end
-
   def position
     @page_title = 'Position'
     @body_class = 'job_page'
@@ -64,38 +44,9 @@ class JobsController < ApplicationController
   	end
   end
 
-  def interview
-    @page_title = "Interview"
-    @body_class = 'job_page'
-
-    @interview = Interview.new
-    @companies = current_user.companies
-    @positions = Position.where(company_id: @companies.pluck(:id))
-  end
-
-  def create_interview
-  	@interview = Interview.new(interview_params)
-
-  	if @interview.save!
-  	  flash[:alert] = 'Save successful :D'
-  	  redirect_to jobs_url
-  	else
-  	  flash[:alert] = 'Save unsuccessful :/'
-  	  redirect_to 'interview'
-  	end
-  end
-
   private
 
   def position_params
     params.require(:position).permit(:title,:url,:notes,:date_applied,:applied_for,:company_id)
-  end
-
-  def company_params
-    params.require(:company).permit(:name,:notes,:location,:url,:user_id)
-  end
-
-  def interview_params
-    params.require(:interview).permit(:interview_date,:approx_length,:notes,:thank_you_sent,:position_id)
   end
 end

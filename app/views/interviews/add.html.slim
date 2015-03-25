@@ -1,15 +1,10 @@
 .form_area
   h1 Create Interview
-  = form_for @interview, url: {action: 'create_interview'} do |f|
+  = form_for @interview, url: {action: 'create'} do |f|
     .form-input-area
       = f.label :interview_date
       br
       = f.datetime_field :interview_date, {value: Date.today}
-
-    .form-input-area
-      = f.label :approx_length, 'Esimated interview length'
-      br
-      = f.text_field :approx_length, {placeholder: '2 hours'}
 
     .form-input-area--checkbox
       = f.label :thank_you_sent do
