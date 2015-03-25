@@ -15,8 +15,9 @@ Rails.application.routes.draw do
 
   # positions
   get 'position/add', to: 'positions#add', as: 'position_add'
-  get '/positions/applied_for/:position_id', to: 'positions#applied_for', as: 'position_applied_for'
-  post 'position/create', to: 'positions#create'
+  get 'position/edit/:id', to: 'positions#edit', as: 'position_edit'
+  get 'positions/applied_for/:position_id', to: 'positions#applied_for', as: 'position_applied_for'
+  post 'position/save', to: 'positions#save'
 
   # interviews
   get  'interview', to: 'interviews#index', as: 'interview'

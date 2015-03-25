@@ -2,8 +2,8 @@
   position: fixed;
   top: 0;
   right: 0;
-  max-height: 37px;
-  padding: 10px 20px;
+  max-height: 45px;
+  padding: 10px 20px 20px 20px;
   text-align: right;
   background: $c-blue;
   font-size: .8em;
@@ -33,5 +33,26 @@
     &:first-child {
       margin-bottom: 15px;
     }
+  }
+}
+
+.main_header-menu_indicator {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 3px 0;
+  text-align: center;
+  font-size: .9em;
+  font-weight: bold;
+  background: $c-blue;
+}
+
+.main_header-menu_indicator-icon {
+  display: inline-block;
+  transition: transform .2s ease-in-out;
+
+  .main_header:hover & {
+    transform: rotate(180deg);
   }
 }

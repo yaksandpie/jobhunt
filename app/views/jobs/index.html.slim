@@ -18,14 +18,15 @@
       tbody
         - @new_positions.each do |position|
           tr
-            td = position.title
+            td
+              a href=position_edit_path(position.id) = position.title
             td = position.company.name
             td.table-url
               span.table-url-link_wrapper
                 a href=position.url = strip_url(position.url)
             td = position.notes
             td
-              = link_to 'Change Status', position_applied_for_path(position), class: 'site-link'
+              = link_to 'Mark as Applied', position_applied_for_path(position), class: 'site-link'
   - else
     .negatory = ':('
     p.intro-text = 'You should probably go out and find some new ones. For real. You can do it!'
@@ -53,7 +54,8 @@
         - @applied_for_positions.each do |position|
           tr
             td.table-date = position.date_applied.strftime('%a, %b %d')
-            td = position.title
+            td
+              a href=position_edit_path(position.id) = position.title
             td = position.company.name
             td.table-url
               span.table-url-link_wrapper
@@ -103,7 +105,8 @@
       tbody
         - @positions_rejected.each do |position|
           tr
-            td = position.title
+            td
+              a href=position_edit_path(position.id) = position.title
             td = position.company.name
             td.table-url
               span.table-url-link_wrapper
