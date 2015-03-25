@@ -1,0 +1,26 @@
+.job-wrapper
+  - if @companies.count > 0
+
+    h1 = 'Every single company EVER!'
+    p.intro-text = 'This is a list of the companies that you have applied to regardless of the outcome'
+    
+    table
+      thead
+        tr
+          th.table-desc Name
+          th URL
+          th Location
+          th Notes
+      tbody
+        - @companies.each do |company|
+          tr
+            td = company.name
+            td.table-url
+              span.table-url-link_wrapper
+                a href=company.url = strip_url(company.url)
+            td = company.location
+            td = company.notes
+  - else
+    .negatory = ':('
+
+  a.site-link href=company_add_path = 'Add a company'

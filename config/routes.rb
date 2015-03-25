@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   get  'jobs', to: 'jobs#index', as: 'jobs'
 
   # company
+  get  'company', to: 'companies#index', as: 'company'
   get  'company/add', to: 'companies#add', as: 'company_add'
   post 'company/create', to: 'companies#create'
 

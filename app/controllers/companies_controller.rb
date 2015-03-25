@@ -2,6 +2,11 @@ class CompaniesController < ApplicationController
   before_action :authenticate_user!
 
   def index
+    @page_title = 'Company List'
+    @body_class = "job_page"
+
+    # get all the companies
+    @companies = current_user.companies
   end
 
   def add
