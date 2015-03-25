@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   post 'position/create', to: 'positions#create'
 
   # interviews
+  get  'interview', to: 'interviews#index', as: 'interview'
   get 'interview/add', to: 'interviews#add', as: 'interview_add'
   post 'interview/create', to: 'interviews#create'
 

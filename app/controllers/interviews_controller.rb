@@ -2,6 +2,9 @@ class InterviewsController < ApplicationController
   before_action :authenticate_user!
 
   def index
+    @companies = current_user.companies
+    @positions = Position.where(company_id: @companies.pluck(:id))
+    @interviews = Interview.where(position_id: @positions.pluck(:id))
   end
 
   def add

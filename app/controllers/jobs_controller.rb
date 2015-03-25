@@ -20,7 +20,6 @@ class JobsController < ApplicationController
     @positions_rejected = @positions.where(rejected: true)
 
     # get all the interviews
-    @interviews = Interview.where(position_id: @applied_for_positions.pluck(:id))
-    
+    @interviews = Interview.where(position_id: @applied_for_positions.pluck(:id))    
   end
 end

@@ -1,0 +1,26 @@
+.job-wrapper
+  - if @interviews.count > 0
+    h1 = 'INTERVIEWS'
+
+    p.intro-text = 'Every interview ever even if they rejected you. Sorry. Too soon?'
+    
+    table
+      thead
+        tr
+          th.table-date Date
+          th.table-desc Position
+          th Location
+          th.table-desc Thank you sent?
+          th Notes
+      tbody
+        - @interviews.each do |interview|
+          tr
+            td.table-date = interview.interview_date.strftime('%a, %b %d')
+            td = "#{interview.position.title} at #{interview.position.company.name}"
+            td = interview.position.company.location
+            td = interview.thank_you_sent
+            td = interview.notes
+  - else
+    .negatory = ':('
+
+  a.site-link href=interview_add_path = 'Add an interview'
