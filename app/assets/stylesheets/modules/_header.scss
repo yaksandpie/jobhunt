@@ -1,0 +1,37 @@
+.main_header {
+  position: fixed;
+  top: 0;
+  right: 0;
+  max-height: 37px;
+  padding: 10px 20px;
+  text-align: right;
+  background: $c-blue;
+  font-size: .8em;
+  color: $c-white;
+  box-shadow: 0 9px 19px -11px rgba(0,0,0,0.43);
+  transition: max-height .5s ease-in-out;
+  overflow: hidden;
+
+  &:hover {
+    max-height: 175px;
+  }
+
+  a {
+    color: $c-white;
+    padding-bottom: 1px;
+    border-bottom: 1px solid transparent;
+
+    &:hover {
+      border-color: currentColor;
+    }
+  }
+
+  li {
+    margin-bottom: 8px;
+    text-align: left;
+
+    &:first-child {
+      margin-bottom: 15px;
+    }
+  }
+}
