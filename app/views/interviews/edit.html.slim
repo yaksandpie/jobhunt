@@ -1,0 +1,6 @@
+.form_area
+  h1 Edit Interview
+  
+  = render 'form'
+
+  = link_to 'Delete', interview_delete_path(@interview.id), method: :delete, class: 'site-link'

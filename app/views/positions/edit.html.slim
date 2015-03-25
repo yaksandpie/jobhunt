@@ -2,3 +2,5 @@
   h1 Edit Position
 
   = render 'form'
+
+  = link_to 'Delete', position_delete_path(@position.id), method: :delete, class: 'site-link'

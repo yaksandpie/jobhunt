@@ -34,6 +34,13 @@ class PositionsController < ApplicationController
     end
   end
 
+  def delete
+    @position = Position.where(id: params[:id]).first
+    @position.delete
+
+    redirect_to jobs_path
+  end
+
   def applied_for
     Position.update(params[:position_id], :date_applied => Date.today)
     redirect_to jobs_path

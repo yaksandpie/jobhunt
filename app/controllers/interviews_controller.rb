@@ -16,16 +16,37 @@ class InterviewsController < ApplicationController
     @positions = Position.where(company_id: @companies.pluck(:id))
   end
 
-  def create
-    @interview = Interview.new(permitted_params)
+  def edit
+    @page_title = 'Interview'
+    @body_class = 'job_page'
 
+    @interview = Interview.where(id: params[:id]).first
+    @companies = current_user.companies
+    @positions = Position.where(company_id: @companies.pluck(:id))
+  end
+
+  def save
+    if params[:interview][:id].present?
+      @interview = Interview.where(id: params[:interview][:id]).first
+      @interview.update(permitted_params)
+    else
+      @interview = Interview.new(permitted_params)
+    end
+    
     if @interview.save!
       flash[:alert] = 'Save successful :D'
-      redirect_to jobs_url
     else
       flash[:alert] = 'Save unsuccessful :/'
-      redirect_to 'interview'
     end
+    
+    redirect_to interview_path
+  end
+
+  def delete
+    @interview = Interview.where(id: params[:id]).first
+    @interview.delete
+
+    redirect_to interview_path
   end
 
   private

@@ -47,6 +47,20 @@ td.table-date {
   }
 }
 
+.table-applied {
+  text-align: center;
+}
+
+.table-icon .site-icon {
+  font-size: .9em;
+  opacity: 0;
+  transition: opacity .2s ease-in-out;
+
+  tr:hover & {
+    opacity: 1;
+  }
+}
+
 .table-url-link_wrapper {
   display: inline-block;
   width: 75px;

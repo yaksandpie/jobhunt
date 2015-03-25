@@ -11,18 +11,23 @@ Rails.application.routes.draw do
   # company
   get  'company', to: 'companies#index', as: 'company'
   get  'company/add', to: 'companies#add', as: 'company_add'
-  post 'company/create', to: 'companies#create'
+  get 'company/:id', to: 'companies#edit', as: 'company_edit'
+  post 'company/save', to: 'companies#save'
+  delete 'company/:id', to: 'companies#delete', as: 'company_delete'
 
   # positions
   get 'position/add', to: 'positions#add', as: 'position_add'
   get 'position/edit/:id', to: 'positions#edit', as: 'position_edit'
   get 'positions/applied_for/:position_id', to: 'positions#applied_for', as: 'position_applied_for'
   post 'position/save', to: 'positions#save'
+  delete 'position/:id', to: 'positions#delete', as: 'position_delete'
 
   # interviews
   get  'interview', to: 'interviews#index', as: 'interview'
+  get 'interview/edit/:id', to: 'interviews#edit', as: 'interview_edit'
   get 'interview/add', to: 'interviews#add', as: 'interview_add'
-  post 'interview/create', to: 'interviews#create'
+  post 'interview/save', to: 'interviews#save'
+  delete 'interview/:id', to: 'interviews#delete', as: 'interview_delete'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

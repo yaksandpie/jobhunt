@@ -1,0 +1,25 @@
+= form_for @company, url: {action: 'save'}, method: :POST do |f|
+  = f.hidden_field :id
+  
+  .form-input-area
+    = f.label :name, 'Company Name'
+    br
+    = f.text_field :name, {placeholder: 'xyz company'}
+  
+  .form-input-area
+    = f.label :location
+    br
+    = f.text_field :location, {placeholder: 'SE Division St / 21st'}
+
+  .form-input-area
+    = f.label :url, 'URL'
+    br
+    = f.text_field :url, {placeholder: 'http://www.alexmiley.com'}
+  
+  .form-input-area
+    =f.label :notes
+    br
+    = f.text_area :notes, {placeholder: 'jot some down...'}
+  
+  .form-input-area
+    = f.submit 'Submit'

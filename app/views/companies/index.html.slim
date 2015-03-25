@@ -11,6 +11,7 @@
           th URL
           th Location
           th Notes
+          th
       tbody
         - @companies.each do |company|
           tr
@@ -20,6 +21,9 @@
                 a href=company.url = strip_url(company.url)
             td = company.location
             td = company.notes
+            td.table-icon
+              a.site-icon href=company_edit_path(company.id)
+                span.icon-pencil
   - else
     .negatory = ':('
 

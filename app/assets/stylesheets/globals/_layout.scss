@@ -30,6 +30,17 @@
   text-transform: uppercase;
 }
 
+.site-icon {
+  display: inline-block;
+  border: 0;
+  opacity: 1;
+  transition: opacity .2s ease-in-out;
+
+  &:hover {
+    opacity: .7;
+  }
+}
+
 .negatory {
   padding: 50px 0;
   text-align: center;

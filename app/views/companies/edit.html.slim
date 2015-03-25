@@ -1,0 +1,6 @@
+.form_area
+  h1 Edit Company
+  
+  = render 'form'
+
+  = link_to 'Delete', company_delete_path(@company.id), method: :delete, class: 'site-link'

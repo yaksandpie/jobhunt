@@ -14,19 +14,23 @@
           th.table-desc Company
           th URL
           th Notes
-          th Applied?
+          th.table-applied Applied?
+          th
       tbody
         - @new_positions.each do |position|
           tr
-            td
-              a href=position_edit_path(position.id) = position.title
+            td = position.title
             td = position.company.name
             td.table-url
               span.table-url-link_wrapper
                 a href=position.url = strip_url(position.url)
             td = position.notes
-            td
-              = link_to 'Mark as Applied', position_applied_for_path(position), class: 'site-link'
+            td.table-applied
+              a.site-icon href=position_applied_for_path(position)
+                span.icon-thumbs-up
+            td.table-icon
+              a.site-icon href=position_edit_path(position.id)
+                span.icon-pencil
   - else
     .negatory = ':('
     p.intro-text = 'You should probably go out and find some new ones. For real. You can do it!'
@@ -50,17 +54,20 @@
           th.table-desc Company
           th URL
           th Notes
+          th
       tbody
         - @applied_for_positions.each do |position|
           tr
             td.table-date = position.date_applied.strftime('%a, %b %d')
-            td
-              a href=position_edit_path(position.id) = position.title
+            td = position.title
             td = position.company.name
             td.table-url
               span.table-url-link_wrapper
                 a href=position.url = strip_url(position.url)
             td = position.notes
+            td.table-icon
+              a.site-icon href=position_edit_path(position.id)
+                span.icon-pencil
 
 
 / Interview Area
@@ -76,6 +83,7 @@
           th Location
           th.table-desc Thank you sent?
           th Notes
+          th
       tbody
         - @interviews.each do |interview|
           tr
@@ -84,6 +92,9 @@
             td = interview.position.company.location
             td = interview.thank_you_sent
             td = interview.notes
+            td.table-icon
+              a.site-icon href=interview_edit_path(interview.id)
+                span.icon-pencil
 
 
 
@@ -102,13 +113,16 @@
           th.table-desc Company
           th URL
           th Notes
+          th
       tbody
         - @positions_rejected.each do |position|
           tr
-            td
-              a href=position_edit_path(position.id) = position.title
+            td = position.title
             td = position.company.name
             td.table-url
               span.table-url-link_wrapper
                 a href=position.url = strip_url(position.url)
             td = position.notes
+            td.table-icon
+              a.site-icon href=position_edit_path(position.id)
+                span.icon-pencil
