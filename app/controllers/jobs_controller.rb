@@ -11,16 +11,16 @@ class JobsController < ApplicationController
     @positions = Position.where(company_id: @companies.pluck(:id))
 
     # get the new positions. i.e. those without a date applied
-    @new_positions = @positions.where(date_applied: nil)
+    @new_positions = @positions.where(date_applied: nil, rejected: false)
 
     # get the positions we've applied for
-    @applied_for_positions = @positions.where.not(date_applied: nil)
+    @applied_for_positions = @positions.where(rejected: false).where.not(date_applied: nil)
 
     #get the positions that we got denied. those companies don't know what they're missing.
-    @positions_rejected = @positions.where.not(hear_back: nil)
+    @positions_rejected = @positions.where(rejected: true)
 
     # get all the interviews
-    @interviews = Interview.where(position_id: @new_positions.pluck(:id))
+    @interviews = Interview.where(position_id: @applied_for_positions.pluck(:id))
     
   end
 
@@ -32,9 +32,9 @@ class JobsController < ApplicationController
   end
 
   def create_company
-  	company_params = params.require(:company).permit(:name,:notes,:location,:url,:user_id)
     company_params[:user_id] = current_user.id
   	@company = Company.new(company_params)
+
   	if @company.save!
   	  flash[:alert] = 'Save successful :D'
   	  redirect_to jobs_url
@@ -53,8 +53,8 @@ class JobsController < ApplicationController
   end
 
   def create_position
-  	position_params = params.require(:position).permit(:title,:url,:notes,:date_applied,:hear_back,:company_id)
   	@position = Position.new(position_params)
+
   	if @position.save!
   	  flash[:alert] = 'Save successful :D'
   	  redirect_to jobs_url
@@ -74,8 +74,8 @@ class JobsController < ApplicationController
   end
 
   def create_interview
-  	interview_params = params.require(:interview).permit(:interview_date,:approx_length,:notes,:thank_you_sent,:position_id)
   	@interview = Interview.new(interview_params)
+
   	if @interview.save!
   	  flash[:alert] = 'Save successful :D'
   	  redirect_to jobs_url
@@ -83,5 +83,19 @@ class JobsController < ApplicationController
   	  flash[:alert] = 'Save unsuccessful :/'
   	  redirect_to 'interview'
   	end
+  end
+
+  private
+
+  def position_params
+    params.require(:position).permit(:title,:url,:notes,:date_applied,:applied_for,:company_id)
+  end
+
+  def company_params
+    params.require(:company).permit(:name,:notes,:location,:url,:user_id)
+  end
+
+  def interview_params
+    params.require(:interview).permit(:interview_date,:approx_length,:notes,:thank_you_sent,:position_id)
   end
 end

@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   get 'jobs/position', to: 'jobs#position', as: 'jobs_position'
   post 'jobs/create_position'
 
+
   get 'jobs/interview', to: 'jobs#interview', as: 'jobs_interview'
   post 'jobs/create_interview'
 
