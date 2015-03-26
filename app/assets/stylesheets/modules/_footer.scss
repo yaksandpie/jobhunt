@@ -1,0 +1,32 @@
+.main_footer-wrapper {
+  background: $c-gray;
+  opacity: .9;
+}
+
+.main_footer {
+  max-width: 900px;
+  padding: 20px 30px;
+  margin: 0 auto;
+  font-size: .8em;
+
+  .site-link {
+    font-size: 1em;
+    text-transform: none;
+    font-weight: normal;
+  }
+
+  .site-icon {
+    font-size: 1.5em;
+  }
+}
+
+.main_footer-links li {
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  padding: 0 13px 0 18px;
+
+  &:first-child {
+    padding-left: 0;
+  }
+}
