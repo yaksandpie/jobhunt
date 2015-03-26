@@ -18,7 +18,7 @@
             td = company.name
             td.table-url
               span.table-url-link_wrapper
-                a href=company.url = strip_url(company.url.truncate(30))
+                a target="_blank" href=company.url = strip_url(company.url.truncate(30))
             td = company.location
             td = company.notes.truncate(60)
             td.table-icon

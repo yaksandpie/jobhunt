@@ -23,7 +23,7 @@
             td = position.company.name
             td.table-url
               span.table-url-link_wrapper
-                a href=position.url = strip_url(position.url.truncate(30))
+                a target="_blank" href=position.url = strip_url(position.url.truncate(30))
             td = position.notes.truncate(60)
             td.table-applied
               a.site-icon href=position_applied_for_path(position)
@@ -63,7 +63,7 @@
             td = position.company.name
             td.table-url
               span.table-url-link_wrapper
-                a href=position.url = strip_url(position.url.truncate(30))
+                a target="_blank" href=position.url = strip_url(position.url.truncate(30))
             td = position.notes.truncate(60)
             td.table-icon
               a.site-icon href=position_edit_path(position.id)
@@ -121,7 +121,7 @@
             td = position.company.name
             td.table-url
               span.table-url-link_wrapper
-                a href=position.url = strip_url(position.url.truncate(30))
+                a target="_blank" href=position.url = strip_url(position.url.truncate(30))
             td = position.notes.truncate(60)
             td.table-icon
               a.site-icon href=position_edit_path(position.id)
