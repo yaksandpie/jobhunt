@@ -18,9 +18,9 @@
             td = company.name
             td.table-url
               span.table-url-link_wrapper
-                a href=company.url = strip_url(company.url)
+                a href=company.url = strip_url(company.url.truncate(30))
             td = company.location
-            td = company.notes
+            td = company.notes.truncate(60)
             td.table-icon
               a.site-icon href=company_edit_path(company.id)
                 span.icon-pencil
