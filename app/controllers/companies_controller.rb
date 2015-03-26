@@ -21,12 +21,22 @@ class CompaniesController < ApplicationController
     @body_class = 'job_page'
 
     @company = Company.where(id: params[:id]).first
+
+    unless @company.user == current_user
+      redirect_to jobs_path
+      return false
+    end
   end
 
   def save
     if params[:company][:id].present?
       @company = Company.where(id: params[:company][:id]).first
       @company.update(permitted_params)
+
+      unless @company.user == current_user
+        redirect_to jobs_path
+        return false
+      end
     else
       company_params = permitted_params
       company_params[:user_id] = current_user.id
@@ -43,23 +53,14 @@ class CompaniesController < ApplicationController
     redirect_to company_path
   end
 
-  def create
-    company_params = permitted_params
-    company_params[:user_id] = current_user.id
-    
-  	@company = Company.new(company_params)
-
-  	if @company.save!
-  	  flash[:alert] = 'Save successful :D'
-  	  redirect_to position_add_path
-  	else
-  	  flash[:alert] = 'Save unsuccessful :/'
-  	  redirect_to 'company'
-  	end
-  end
-
   def delete
     @company = Company.where(id: params[:id]).first
+
+    unless @company.user == current_user
+      redirect_to jobs_path
+      return false
+    end
+
     @company.delete
 
     redirect_to company_path

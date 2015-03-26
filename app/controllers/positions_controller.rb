@@ -14,6 +14,12 @@ class PositionsController < ApplicationController
     @body_class = 'job_page'
 
     @position = Position.where(id: params[:id]).first
+
+    unless @position.company.user == current_user
+      redirect_to jobs_path
+      return false
+    end
+
     @companies = current_user.companies
   end
 
@@ -21,21 +27,32 @@ class PositionsController < ApplicationController
     if params[:position][:id].present?
       @position = Position.where(id: params[:position][:id]).first
       @position.update(permitted_params)
+
+      unless @position.company.user == current_user
+        redirect_to jobs_path
+        return false
+      end
     else
       @position = Position.new(permitted_params)
     end
     
     if @position.save!
       flash[:alert] = 'Save successful :D'
-      redirect_to jobs_url
+      redirect_to jobs_path
     else
       flash[:alert] = 'Save unsuccessful :/'
-      redirect_to 'position'
+      redirect_to jobs_path
     end
   end
 
   def delete
     @position = Position.where(id: params[:id]).first
+
+    unless @position.company.user == current_user
+      redirect_to jobs_path
+      return false
+    end
+
     @position.delete
 
     redirect_to jobs_path

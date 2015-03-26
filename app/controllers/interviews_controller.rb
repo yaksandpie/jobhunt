@@ -21,6 +21,12 @@ class InterviewsController < ApplicationController
     @body_class = 'job_page'
 
     @interview = Interview.where(id: params[:id]).first
+
+    unless @interview.position.company.user == current_user
+      redirect_to jobs_path
+      return false
+    end
+
     @companies = current_user.companies
     @positions = Position.where(company_id: @companies.pluck(:id))
   end
@@ -29,6 +35,11 @@ class InterviewsController < ApplicationController
     if params[:interview][:id].present?
       @interview = Interview.where(id: params[:interview][:id]).first
       @interview.update(permitted_params)
+
+      unless @interview.position.company.user == current_user
+        redirect_to jobs_path
+        return false
+      end
     else
       @interview = Interview.new(permitted_params)
     end
@@ -44,6 +55,12 @@ class InterviewsController < ApplicationController
 
   def delete
     @interview = Interview.where(id: params[:id]).first
+
+    unless @interview.position.company.user == current_user
+      redirect_to jobs_path
+      return false
+    end
+
     @interview.delete
 
     redirect_to interview_path
