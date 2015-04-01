@@ -54,6 +54,7 @@
           th.table-desc Company
           th URL
           th Notes
+          th.table-applied Got an Interview!?
           th
       tbody
         - @applied_for_positions.each do |position|
@@ -65,6 +66,9 @@
               span.table-url-link_wrapper
                 a target="_blank" href=position.url = strip_url(position.url.truncate(30))
             td = position.notes.truncate(60)
+            td.table-interview
+              a.site-icon href=interview_add_path
+                span.icon-thumbs-up
             td.table-icon
               a.site-icon href=position_edit_path(position.id)
                 span.icon-pencil
@@ -88,7 +92,7 @@
         - @interviews.each do |interview|
           tr
             td.table-date = interview.interview_date.strftime('%a, %b %d')
-            td = "#{interview.position.title} at #{interview.position.company.name}"
+            td = interview.position_at_company
             td = interview.position.company.location
             td = interview.thank_you_sent
             td = interview.notes.truncate(60)

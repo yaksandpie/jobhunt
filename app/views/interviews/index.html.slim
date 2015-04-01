@@ -17,7 +17,7 @@
         - @interviews.each do |interview|
           tr
             td.table-date = interview.interview_date.strftime('%a, %b %d')
-            td = "#{interview.position.title} at #{interview.position.company.name}"
+            td = interview.position_at_company
             td = interview.position.company.location
             td = interview.thank_you_sent
             td = interview.notes.truncate(60)

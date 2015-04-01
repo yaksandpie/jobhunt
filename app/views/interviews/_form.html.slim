@@ -14,7 +14,7 @@
   .form-input-area
     = f.label :position_id, 'Which position?'
     br
-    = f.collection_select :position_id, @positions, :id, :title
+    = f.collection_select :position_id, @positions, :id, :position_at_company
   
   .form-input-area
     = f.label :notes
