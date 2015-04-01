@@ -4,7 +4,7 @@ class InterviewsController < ApplicationController
   def index
     @companies = current_user.companies
     @positions = Position.where(company_id: @companies.pluck(:id))
-    @interviews = Interview.where(position_id: @positions.pluck(:id))
+    @interviews = Interview.where(position_id: @positions.pluck(:id)).order('interview_date DESC')
   end
 
   def add

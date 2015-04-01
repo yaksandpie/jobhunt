@@ -6,7 +6,7 @@ class CompaniesController < ApplicationController
     @body_class = "job_page"
 
     # get all the companies
-    @companies = current_user.companies
+    @companies = current_user.companies.order('LOWER(name)')
   end
 
   def add
