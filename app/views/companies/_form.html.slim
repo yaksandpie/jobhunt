@@ -1,5 +1,6 @@
 = form_for @company, url: {action: 'save'}, method: :POST do |f|
   = f.hidden_field :id
+  = f.hidden_field :referrer, value: request.referrer
   
   .form-input-area
     = f.label :name, 'Company Name'

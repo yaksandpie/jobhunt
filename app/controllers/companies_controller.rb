@@ -50,7 +50,7 @@ class CompaniesController < ApplicationController
       flash[:alert] = 'Save unsuccessful :/'
     end
     
-    redirect_to company_path
+    redirect_to params[:company][:referrer]
   end
 
   def delete
