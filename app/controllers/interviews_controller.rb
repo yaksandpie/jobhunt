@@ -50,7 +50,7 @@ class InterviewsController < ApplicationController
       flash[:alert] = 'Save unsuccessful :/'
     end
     
-    redirect_to interview_path
+    redirect_to params[:interview][:referrer]
   end
 
   def delete
