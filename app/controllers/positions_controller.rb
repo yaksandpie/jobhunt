@@ -6,7 +6,7 @@ class PositionsController < ApplicationController
     @body_class = 'job_page'
 
     @position = Position.new
-    @companies = current_user.companies
+    @companies = current_user.companies.reverse
   end
 
   def edit
