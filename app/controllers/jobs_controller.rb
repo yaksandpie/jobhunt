@@ -14,7 +14,7 @@ class JobsController < ApplicationController
     @new_positions = @positions.where(date_applied: nil, rejected: false).order('created_at DESC')
 
     # get the positions we've applied for
-    @applied_for_positions = @positions.where(rejected: false).where.not(date_applied: nil).order('date_applied DESC, LOWER(title) ASC')
+    @applied_for_positions = @positions.where(rejected: false).where.not(date_applied: nil).order('date_applied DESC, updated_at DESC')
 
     #get the positions that we got denied. those companies don't know what they're missing.
     @positions_rejected = @positions.where(rejected: true).order('date_applied DESC, LOWER(title) ASC')
