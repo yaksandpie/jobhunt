@@ -29,76 +29,78 @@ tr:nth-child(odd) td {
 
 // Cell specifics
 .table-date {
-  width: 110px;
-  font-size: .8em;
-  font-weight: bold;
+  @include bp(mama-bear) {
+    font-size: .8em;
+    font-weight: bold;
+    width: 110px;
+  }
 }
 
 td.table-date {
   line-height: 17px;
 }
 
-.table-url {
-  width: 75px;
-  overflow: hidden;
-
-  @include bp(papa-bear) {
-    width: 150px;
-  }
-}
-
-.table-applied, .table-interview {
-  text-align: center;
-}
-
 .table-icon .site-icon {
   font-size: .9em;
-  opacity: 0;
-  transition: opacity .2s ease-in-out;
 
-  tr:hover & {
-    opacity: 1;
+  @include bp(mama-bear) {
+    opacity: 0;
+    transition: opacity .2s ease-in-out;
+
+    tr:hover & {
+      opacity: 1;
+    }
   }
 }
 
 .table-url-link_wrapper {
   display: inline-block;
-  width: 75px;
-  text-overflow: ellipsis;
-  overflow: hidden;
   font-size: .9em;
 
-  @include bp(papa-bear) {
+  @include bp(mama-bear) {
     width: 125px;
+    text-overflow: ellipsis;
+    overflow: hidden;
   }
 }
 
-.table-true {
-  display: inline-block;
-  width: 20px;
-  height: 20px;
-  margin: auto;
-  background: rgba($c-green, .7);
-}
-
-.table-false {
-  display: inline-block;
-  width: 20px;
-  height: 20px;
-  background: rgba($c-orange, .7);
-}
-
-.table-boolean, .table-count {
-  width: 80px;
-  text-align: center;
-  font-weight: bold;
-  font-size: .8em;
-}
-
-.table-desc {
-  min-width: 100px;
-
-  @include bp(papa-bear) {
+@include bp(mama-bear) {
+  .table-desc {
     min-width: 150px;
   }
+
+  .table-applied, .table-interview {
+    text-align: center;
+  }
+
+  .table-url {
+    width: 150px;
+    overflow: hidden;
+  }
+}
+
+// Used for the mobile tables. too many to override so isolating it in a max-width is premium
+@include bp(mobile-table) {
+  thead {
+    display: none;
+  }
+
+  td {
+    display: block;
+    width: 100%;
+  }
+
+  .table-notes {
+    display: none;
+  }
+
+  @include mobile-table-label('title');
+  @include mobile-table-label('company_name', 'company');
+  @include mobile-table-label('url');
+  @include mobile-table-label('applied', 'applied?');
+  @include mobile-table-label('interview', 'interview?');
+  @include mobile-table-label('icon', 'edit');
+  @include mobile-table-label('date');
+  @include mobile-table-label('location');
+  @include mobile-table-label('thanks', 'thanks sent?');
 }

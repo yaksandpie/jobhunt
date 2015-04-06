@@ -17,20 +17,21 @@ html
     = render 'favicons', app_name: 'obsessivearchives: job hunt'
 
   body class=(@body_class if @body_class.present?)
-    - if user_signed_in?
-      = render 'header'
+    .all_content
+      - if user_signed_in?
+        = render 'header'
 
-    section.main_content
-      - if notice.present?
-        .notice = notice
+      section.main_content
+        - if notice.present?
+          .notice = notice
 
-      - if alert.present?
-        .alert = alert
+        - if alert.present?
+          .alert = alert
+        
+        = yield
+
+      = render 'footer'
       
-      = yield
-
-    = render 'footer'
-    
     = javascript_include_tag 'application'
 
     = yield :javascript

@@ -17,10 +17,10 @@
         - @interviews.each do |interview|
           tr
             td.table-date = interview.interview_date.strftime('%a, %b %d')
-            td = interview.position_at_company
-            td = interview.position.company.location
-            td = interview.thank_you_sent
-            td = interview.notes.truncate(60)
+            td.table-title = interview.position_at_company
+            td.table-location = interview.position.company.location
+            td.table-thanks = interview.thank_you_sent
+            td.table-notes = interview.notes.truncate(60)
             td.table-icon
               a.site-icon href=interview_edit_path(interview.id)
                 span.icon-pencil

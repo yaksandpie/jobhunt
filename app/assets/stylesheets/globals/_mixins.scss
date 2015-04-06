@@ -43,3 +43,21 @@
         + "Please make sure it is defined in `$breakpoints` map.";
   }
 }
+
+// Mobile menu label mixin
+@mixin mobile-table-label($label-name, $label-alt: null) {
+  // Set label
+  $label: if($label-alt, $label-alt, $label-name);
+
+  .table-#{$label-name} {
+    &:before {
+      content: '#{$label}:';
+      display: inline-block;
+      vertical-align: top;
+      width: 90px;
+      font-size: .8em;
+      text-transform: uppercase;
+      font-weight: bold;
+    }
+  }
+}

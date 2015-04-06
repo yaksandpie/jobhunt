@@ -15,12 +15,12 @@
       tbody
         - @companies.each do |company|
           tr
-            td = company.name
+            td.table-company_name = company.name
             td.table-url
               span.table-url-link_wrapper
                 a target="_blank" href=company.url = strip_url(company.url.truncate(30))
-            td = company.location
-            td = company.notes.truncate(60)
+            td.table-location = company.location
+            td.table-notes = company.notes.truncate(60)
             td.table-icon
               a.site-icon href=company_edit_path(company.id)
                 span.icon-pencil
