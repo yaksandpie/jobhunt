@@ -20,6 +20,6 @@ class JobsController < ApplicationController
     @positions_rejected = @positions.where(rejected: true).order('date_applied DESC, LOWER(title) ASC')
 
     # get all the interviews
-    @interviews = Interview.where(position_id: @applied_for_positions.pluck(:id)).order('interview_date DESC')
+    @interviews = Interview.where(position_id: @positions.pluck(:id)).order('interview_date DESC')
   end
 end
